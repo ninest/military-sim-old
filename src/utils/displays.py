@@ -4,6 +4,7 @@ from textwrap import TextWrapper
 from rich.console import Console
 from rich.table import Column, Table
 
+
 console = Console()
 
 
@@ -23,7 +24,7 @@ def display_stats(military):
   breakup = ''
   for each_formation in military.formations:
     breakup += f'[bold]{each_formation.name}[/bold]: [gray]{military.formations[each_formation]} soldiers[/gray]\n'
-  
+
   breakup += f'[bold]Total: {military.total_count()}[/bold]\n'
 
   if military.joined_this_year != 0 and military.left_this_year != 0:

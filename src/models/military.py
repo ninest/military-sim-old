@@ -2,14 +2,7 @@ from collections import Counter
 import datetime
 import random
 
-
-class Formation:
-  def __init__(self, name, salary):
-    self.name = name
-    self.salary = salary
-
-  def __repr__(self):
-    return f'<{self.name} formation>'
+from models.formation import Formation
 
 
 infantry = Formation('Infantry', 100)
@@ -95,19 +88,3 @@ class Military:
     self.formations[reservists] = 0
     return no_reservists
 
-
-
-class State:
-  def __init__(self):
-    self.rounds_complete = 0
-    self.time_started = datetime.datetime.now()
-
-  def round(self):
-    self.rounds_complete += 1
-
-  def get_time_played(self):
-    ''' return amount of time played '''
-    now = datetime.datetime.now()
-    difference = now - self.time_started
-
-    return int(difference.seconds / 60)

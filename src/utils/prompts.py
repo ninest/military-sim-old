@@ -1,5 +1,6 @@
 from rich.console import Console
-from displays import typewrtier_print
+from utils.displays import typewrtier_print
+
 
 console = Console()
 

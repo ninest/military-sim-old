@@ -4,8 +4,8 @@ import time
 import webbrowser
 from rich import print
 
-from displays import fullscreen_message, clear_screen
-from prompts import prompt, mc_prompt
+from utils.displays import fullscreen_message, clear_screen
+from utils.prompts import prompt, mc_prompt
 from game import start
 
 

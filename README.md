@@ -16,14 +16,18 @@ Images and GIFs to be added soon.
 
 ## 🚀 Features
 - [x] View soldiers in each vocation (infantry, transport, ...)
-- [x] Have new soldiers join and leave the army each year
-- [x] Pay each soldier depending on their salary from the military's budget
-  - [ ] Get government support (increased budget) depending on the number of soldiers
-- [ ] Soldiers training quality (between 0.0 and 1.0) and preparedness
+  - [x] Have new soldiers join and leave the army each year
+  - [x] Pay each soldier depending on their salary from the military's budget
+- [ ] Get government support (increased budget) depending on the number of soldiers
 - [ ] Have schemes to enlist more people (like voluntary national service)
-- [ ] Wars
 - [x] Reservists
   - [x] Have reservists leave the army after 5 years
+- [ ] Vehicles
+- [ ] Calculate the military's preparedness level based on a series of factors:
+  - [ ] Number of soldiers
+  - [ ] Training quality
+  - [ ] Number of vehicles and their power
+- [ ] Wars
 
 ## 🛠 Build setup
 clone or fork the repository, then run

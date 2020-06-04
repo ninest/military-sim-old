@@ -1,10 +1,11 @@
 import time
 from rich import print
 
-from displays import typewrtier_print
-from models import Military, Formation, State
-from displays import display, clear_screen, display_stats
-from prompts import mc_prompt
+from models.military import Military
+from models.state import State
+
+from utils.displays import display, clear_screen, display_stats, typewrtier_print
+from utils.prompts import mc_prompt
 
 # instantiate the military!
 military = Military()
