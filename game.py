@@ -23,8 +23,4 @@ def gameloop():
 
   choice = mc_prompt('What would you like to do now?', ['nothing'])
 
-  military.formations[Formation.Infantry] += 10
-  military.formations[Formation.Transport] += 2
-  military.formations[Formation.Supply] += 2
-
-  military.budget += 137
+  military.yearly_enlistment()

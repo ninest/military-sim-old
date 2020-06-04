@@ -14,6 +14,9 @@ def main():
   fullscreen_message('Welcome to Military Simulator', color='green')
   time.sleep(2)
 
+  # DEBUG mode: automatially start the game
+  start()
+
   # start game
   # while True:
   clear_screen()
