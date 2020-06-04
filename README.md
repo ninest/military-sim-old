@@ -18,10 +18,11 @@
 - [x] View soldiers in each vocation (infantry, transport, ...)
 - [x] Have new soldiers join and leave the army each year
 - [x] Pay each soldier depending on their salary from the military's budget
-  - [ ] Get government support (increased budget)
+  - [ ] Get government support (increased budget) depending on the number of soldiers
 - [ ] Soldiers training quality (between 0.0 and 1.0) and preparedness
 - [ ] Have schemes to enlist more people (like voluntary national service)
 - [ ] Wars
+- [ ] Reservists
 
 ## 🛠 Build setup
 clone or fork the repository, then run
