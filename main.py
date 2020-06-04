@@ -11,8 +11,8 @@ from game import start
 def main():
   # TODO: set the background color to a darker color
 
-  fullscreen_message('Welcome to Military Sim', color='green')
-  time.sleep(0.3)
+  fullscreen_message('Welcome to Military Simulator', color='green')
+  time.sleep(2)
 
   # start game
   # while True:

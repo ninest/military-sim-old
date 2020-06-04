@@ -10,7 +10,7 @@ console = Console()
 def display_stats(military):
   ''' Prints a table of the army stats '''
 
-  table = Table(show_header=True, header_style='bold green')
+  table = Table(show_header=True, header_style='bold white')
 
   # columns: breakup of how many people in each formation and total budget
   table.add_column('Breakup')
@@ -18,7 +18,7 @@ def display_stats(military):
 
   breakup = ''
   for each_formation in military.formations:
-    breakup += f'{each_formation.name}: {military.formations[each_formation]} soldiers\n'
+    breakup += f'[bold]{each_formation.name}[/bold]: [gray]{military.formations[each_formation]} soldiers[/gray]\n'
 
   table.add_row(
       breakup,
