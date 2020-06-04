@@ -13,7 +13,7 @@ def start():
 
 
 def gameloop():
-  clear_screen()
+  # clear_screen()
 
   # display stats of military
   display_stats(military)
@@ -23,4 +23,5 @@ def gameloop():
 
   choice = mc_prompt('What would you like to do now?', ['nothing'])
 
+  military.yearly_pay_salary()
   military.yearly_enlistment()

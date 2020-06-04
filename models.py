@@ -4,17 +4,17 @@ import enum
 
 
 class Formation:
-  def __init__(self, name, pay):
+  def __init__(self, name, salary):
     self.name = name
-    self.pay = pay
+    self.salary = salary
 
   def __repr__(self):
     return f'<{self.name} formation>'
 
 
-infantry = Formation('Infantry', 1000)
-transport = Formation('Transport', 700)
-supply = Formation('Supply', 700)
+infantry = Formation('Infantry', 100)
+transport = Formation('Transport', 50)
+supply = Formation('Supply', 50)
 
 
 class Military:
@@ -27,7 +27,7 @@ class Military:
     })
 
     # how much money the army has, used to pay salary
-    self.budget = 10000
+    self.budget = 25000
 
   def yearly_enlistment(self):
     ''' 
@@ -42,3 +42,15 @@ class Military:
       new_pop = int(previous_pop + (previous_pop/10 * random.random()))
 
       self.formations[each_formation] = new_pop
+
+  def yearly_pay_salary(self):
+    '''
+    - Called at the end of the game loop
+    - pays the salary for each formation soldier (money taken from budget)
+    '''
+
+    for each_formation in self.formations:
+      no_soldiers = self.formations[each_formation]
+      pay = each_formation.salary
+
+      self.budget -= pay * no_soldiers
