@@ -4,6 +4,8 @@ console = Console()
 
 
 def prompt(prompt_message=None):
+  ''' A customized prompt to be used instead of input (doesn't require a prompt_message) '''
+
   # if no prompt_message, only ask for the prompt
   if prompt_message is not None:
     console.print(prompt_message, style='bold')
@@ -14,6 +16,8 @@ def prompt(prompt_message=None):
 
 
 def mc_prompt(prompt_message, choices):
+  ''' Multiple choice prompt that returns an element from the choices list '''
+
   console.print(prompt_message, style='bold')
 
   for each_choice in enumerate(choices):
