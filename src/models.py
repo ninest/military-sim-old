@@ -16,6 +16,10 @@ infantry = Formation('Infantry', 100)
 transport = Formation('Transport', 50)
 supply = Formation('Supply', 50)
 
+# when soldiers in combat units leave the army, they're added to the reservists
+# reservists leave at the end of the year
+reservists = Formation('Reservists', 50)
+
 
 class Military:
   def __init__(self):
@@ -24,6 +28,7 @@ class Military:
         infantry: 50,
         transport: 10,
         supply: 10,
+        reservists: 0
     })
 
     # how much money the army has, used to pay salary
@@ -41,12 +46,18 @@ class Military:
     '''
 
     for each_formation in self.formations:
-      previous_pop = self.formations[each_formation]
+      if each_formation != reservists:
+        # only non-reservists will be added to the army
+        previous_pop = self.formations[each_formation]
+        newly_enlisted = random.randint(0, int(previous_pop/3))
+        de_enlisted = random.randint(0, int(previous_pop/10))
 
-      newly_enlisted = random.randint(0, int(previous_pop/5))
-      de_enlisted = random.randint(0, int(previous_pop/10))
+        self.formations[each_formation] += newly_enlisted - de_enlisted
 
-      self.formations[each_formation] += newly_enlisted - de_enlisted
+        if each_formation == infantry:
+          # those who leave the infantry (or any other combat unit) join the reservists
+          self.formations[reservists] += de_enlisted
+      
 
   def yearly_pay_salary(self):
     '''

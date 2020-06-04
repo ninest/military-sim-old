@@ -7,6 +7,10 @@ from rich.table import Column, Table
 console = Console()
 
 
+def display(message, style=''):
+  console.print(message, style=style)
+
+
 def display_stats(military):
   ''' Prints a table of the army stats '''
 
