@@ -31,6 +31,11 @@ class Military:
         reservists: 0
     })
 
+    # how many new people were enlisted and de-enlisted this year
+    # this is stored in the table of militry stats
+    self.joined_this_year = 0
+    self.left_this_year = 0
+
     # how much money the army has, used to pay salary
     self.budget = 75000
     self.govt_support_amount = 5000
@@ -53,12 +58,17 @@ class Military:
         de_enlisted = random.randint(0, int(previous_pop/10))
 
         print(each_formation.name, newly_enlisted, de_enlisted)
+        
 
         self.formations[each_formation] += newly_enlisted - de_enlisted
 
         if each_formation == infantry:
           # those who leave the infantry (or any other combat unit) join the reservists
           self.formations[reservists] += de_enlisted
+        else:
+          self.left_this_year += de_enlisted
+        self.joined_this_year += newly_enlisted
+    
       
 
   def yearly_pay_salary(self):
@@ -74,7 +84,9 @@ class Military:
       self.budget -= pay * no_soldiers
     
   def clear_reservists(self):
+    no_reservists = self.formations[reservists]
     self.formations[reservists] = 0
+    return no_reservists
 
 
 class State:

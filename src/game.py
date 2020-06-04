@@ -26,10 +26,12 @@ def gameloop():
   # display stats of military
   display_stats(military)
 
+  military.joined_this_year = military.left_this_year = 0
+
   alerts = []
   # every 10 years, all reservists leave the army
   if (state.rounds_complete % 5 == 0) and (state.rounds_complete != 0):
-    military.clear_reservists()
+    military.left_this_year += military.clear_reservists()
     alerts.append('Reservists to leave army next year')
   
   # print alerts if there are any
@@ -43,6 +45,8 @@ def gameloop():
   print('\n\n')
 
   choice = mc_prompt('What would you like to do now?', ['nothing'])
+  # choice logic
+  # TODO:
 
   military.yearly_pay_salary()
   military.yearly_enlistment()
@@ -50,7 +54,5 @@ def gameloop():
   # get money if military has government support
   military.budget += military.govt_support_amount
 
-
   # game state
   state.round()
-  print('time played: ', state.get_time_played())
