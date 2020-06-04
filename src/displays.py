@@ -19,7 +19,7 @@ def display_stats(military):
   breakup = ''
   for each_formation in military.formations:
     breakup += f'[bold]{each_formation.name}[/bold]: [gray]{military.formations[each_formation]} soldiers[/gray]\n'
-  
+
   breakup += f'[bold]Total: {military.total_count()}[/bold]'
 
   table.add_row(
