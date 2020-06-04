@@ -3,7 +3,6 @@ from rich import print
 
 from displays import typewrtier_print
 from models import Military, Formation, State
-from models import reservists
 from displays import display, clear_screen, display_stats
 from prompts import mc_prompt
 
@@ -30,7 +29,7 @@ def gameloop():
   alerts = []
   # every 10 years, all reservists leave the army
   if (state.rounds_complete % 5 == 0) and (state.rounds_complete != 0):
-    military.formations[reservists] = 0
+    military.clear_reservists()
     alerts.append('Reservists to leave army next year')
   
   # print alerts if there are any

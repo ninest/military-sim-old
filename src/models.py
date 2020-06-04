@@ -52,6 +52,8 @@ class Military:
         newly_enlisted = random.randint(0, int(previous_pop/3))
         de_enlisted = random.randint(0, int(previous_pop/10))
 
+        print(each_formation.name, newly_enlisted, de_enlisted)
+
         self.formations[each_formation] += newly_enlisted - de_enlisted
 
         if each_formation == infantry:
@@ -70,6 +72,9 @@ class Military:
       pay = each_formation.salary
 
       self.budget -= pay * no_soldiers
+    
+  def clear_reservists(self):
+    self.formations[reservists] = 0
 
 
 class State:

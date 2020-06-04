@@ -22,7 +22,8 @@
 - [ ] Soldiers training quality (between 0.0 and 1.0) and preparedness
 - [ ] Have schemes to enlist more people (like voluntary national service)
 - [ ] Wars
-- [ ] Reservists
+- [x] Reservists
+  - [ ] They leave the army after 5 years
 
 ## 🛠 Build setup
 clone or fork the repository, then run
