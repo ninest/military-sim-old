@@ -39,7 +39,13 @@ python3 src/main.py
 ### File setup
 - `main.py`: Entry point
 - `game.py`: Game loop
-- `models.py`: Military state and game state
+- `models/`:
+  - Formation model (for each part of the military)
+  - Military model (stores all information about the military you control)
+  - State (game state, such as rounds played, time game started)
+- `utils/`:
+  - `displays.py`: custom functions for manipulating terminal content
+  - `prompts.py`: custom functions for getting user input
 
 
 ## 📜 License

@@ -1,4 +1,5 @@
 from rich.console import Console
+
 from utils.displays import typewrtier_print
 
 
