@@ -1,4 +1,5 @@
 import os
+import time
 from textwrap import TextWrapper
 from rich.console import Console
 
@@ -7,6 +8,17 @@ console = Console()
 
 def clear_screen():
   os.system('clear')
+
+
+def typewrtier_print(message, style=''):
+  ''' print a message being typed in a typewriter-like effect '''
+
+  for char in message:
+    console.print(char, end='', style=style)
+    time.sleep(0.055)
+  
+  # leave line at the end
+  print()
 
 
 def fullscreen_message(message, color=''):

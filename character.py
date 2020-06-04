@@ -4,4 +4,4 @@ class Character:
     self.age = age
     self.rank = 0
     self.hp = 100
-    
+  
