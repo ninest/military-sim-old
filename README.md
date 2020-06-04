@@ -12,7 +12,7 @@
   </a>
 </p>
 
-
+Images and GIFs to be added soon.
 
 ## 🚀 Features
 - [x] View soldiers in each vocation (infantry, transport, ...)
@@ -23,7 +23,7 @@
 - [ ] Have schemes to enlist more people (like voluntary national service)
 - [ ] Wars
 - [x] Reservists
-  - [ ] They leave the army after 5 years
+  - [x] Have reservists leave the army after 5 years
 
 ## 🛠 Build setup
 clone or fork the repository, then run

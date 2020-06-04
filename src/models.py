@@ -82,11 +82,19 @@ class Military:
       pay = each_formation.salary
 
       self.budget -= pay * no_soldiers
+  
+  def year_end(self):
+    self.yearly_pay_salary()
+    self.yearly_enlistment()
+
+    # get money if military has government support
+    self.budget += self.govt_support_amount
     
   def clear_reservists(self):
     no_reservists = self.formations[reservists]
     self.formations[reservists] = 0
     return no_reservists
+
 
 
 class State:
