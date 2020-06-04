@@ -1,9 +1,13 @@
-from models import Military, Formation
+from models import Military, Formation, State
 from displays import clear_screen, display_stats
 from prompts import mc_prompt
 
 # instantiate the military!
 military = Military()
+
+# start game state (round counter, time played)
+state = State()
+
 
 def start():
   clear_screen()
@@ -28,3 +32,7 @@ def gameloop():
 
   # get money if military has government support
   military.budget += military.govt_support_amount
+
+  # game state
+  state.round()
+  print('time played: ', state.get_time_played())
