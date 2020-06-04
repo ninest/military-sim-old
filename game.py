@@ -25,3 +25,6 @@ def gameloop():
 
   military.yearly_pay_salary()
   military.yearly_enlistment()
+
+  # get money if military has government support
+  military.budget += military.govt_support_amount

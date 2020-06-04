@@ -1,6 +1,5 @@
 from collections import Counter
 import random
-import enum
 
 
 class Formation:
@@ -27,7 +26,8 @@ class Military:
     })
 
     # how much money the army has, used to pay salary
-    self.budget = 25000
+    self.budget = 75000
+    self.govt_support_amount = 5000
 
   def yearly_enlistment(self):
     ''' 
@@ -37,11 +37,12 @@ class Military:
     '''
 
     for each_formation in self.formations:
-      # choose a random multiplier value for 10% of the formation population
       previous_pop = self.formations[each_formation]
-      new_pop = int(previous_pop + (previous_pop/10 * random.random()))
 
-      self.formations[each_formation] = new_pop
+      newly_enlisted = random.randint(0, int(previous_pop/5))
+      de_enlisted = random.randint(0, int(previous_pop/10))
+
+      self.formations[each_formation] += newly_enlisted - de_enlisted
 
   def yearly_pay_salary(self):
     '''
