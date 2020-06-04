@@ -5,6 +5,7 @@ import webbrowser
 from rich import print
 from displays import fullscreen_message, clear_screen
 from prompts import prompt, mc_prompt
+from game import start
 
 
 def main():
@@ -21,7 +22,10 @@ def main():
         choices=['play', 'github', 'quit']
     )
 
-    if option == 'github':
+    if option == 'start':
+      start()
+
+    elif option == 'github':
       webbrowser.open('https://github.com/ninest')
 
     elif option == 'quit':
