@@ -2,8 +2,29 @@ import os
 import time
 from textwrap import TextWrapper
 from rich.console import Console
+from rich.table import Column, Table
 
 console = Console()
+
+
+def display_stats(military):
+  ''' Prints a table of the army stats '''
+
+  table = Table(show_header=True, header_style='bold green')
+
+  # columns: breakup of how many people in each formation and total budget
+  table.add_column('Breakup')
+  table.add_column('Budget ($)')
+
+  breakup = ''
+  for each_formation in military.formations:
+    breakup += f'{each_formation.name}: {military.formations[each_formation]} soldiers\n'
+
+  table.add_row(
+      breakup,
+      f'{military.budget}'
+  )
+  console.print(table)
 
 
 def clear_screen():
@@ -15,8 +36,9 @@ def typewrtier_print(message, style=''):
 
   for char in message:
     console.print(char, end='', style=style)
-    time.sleep(0.055)
-  
+    # time.sleep(0.055)
+    time.sleep(0.005)
+
   # leave line at the end
   print()
 
