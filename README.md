@@ -31,6 +31,9 @@ python3 src/main.py
 ```
 
 ### File setup
+- `main.py`: Entry point
+- `game.py`: Game loop
+- `models.py`: Military state and game state
 
 
 ## 📜 License
