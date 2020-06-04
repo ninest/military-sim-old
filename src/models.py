@@ -30,6 +30,9 @@ class Military:
     self.budget = 75000
     self.govt_support_amount = 5000
 
+  def total_count(self):
+    return sum(self.formations.values())
+
   def yearly_enlistment(self):
     ''' 
     - Called at the end of the game loop
