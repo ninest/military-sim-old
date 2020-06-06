@@ -13,7 +13,7 @@ def main():
   # TODO: set the background color to a darker color
 
   # DEBUG mode: automatially start the game
-  # start()
+  start()
 
 
   fullscreen_message('Welcome to Military Simulator', color='green')

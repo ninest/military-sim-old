@@ -12,7 +12,7 @@ def display(message, style=''):
   console.print(message, style=style)
 
 
-def display_stats(military):
+def display_stats(military, state):
   ''' Prints a table of the army stats '''
 
   table = Table(show_header=True, header_style='bold white')
@@ -20,6 +20,7 @@ def display_stats(military):
   # columns: breakup of how many people in each formation and total budget
   table.add_column('Breakup')
   table.add_column('Budget ($)')
+  table.add_column('Years passed')
 
   breakup = ''
   for each_formation in military.formations:
@@ -29,11 +30,12 @@ def display_stats(military):
 
   # if military.joined_this_year != 0 and military.left_this_year != 0:
   # show the change in number of people
-  breakup += f'([red]-{military.left_this_year}[/red] [green]+{military.joined_this_year}[/green])'
+  breakup += f'[red]-{military.left_this_year} ({military.leave_rate})[/red]   [green]+{military.joined_this_year} ({military.join_rate})[/green]'
 
   table.add_row(
       breakup,
-      f'{military.budget}'
+      f'{military.budget}',
+      f'{state.rounds_complete}'
   )
   console.print(table)
 

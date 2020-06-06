@@ -29,6 +29,10 @@ class Military:
     self.joined_this_year = 0
     self.left_this_year = 0
 
+    # mulitplier for how many people will join/leave the army
+    self.join_rate = 1
+    self.leave_rate = 1
+
     # how much money the army has, used to pay salary
     self.budget = 75000
     self.govt_support_amount = 5000
@@ -47,8 +51,8 @@ class Military:
       if each_formation != reservists:
         # only non-reservists will be added to the army
         previous_pop = self.formations[each_formation]
-        newly_enlisted = random.randint(0, int(previous_pop/3))
-        de_enlisted = random.randint(0, int(previous_pop/10))
+        newly_enlisted = random.randint(0, int(previous_pop/3 * self.join_rate))
+        de_enlisted = random.randint(0, int(previous_pop/3 * self.leave_rate))
 
         print(each_formation.name, newly_enlisted, de_enlisted)
         
@@ -76,12 +80,16 @@ class Military:
 
       self.budget -= pay * no_soldiers
   
-  def year_end(self):
+  def year_end(self, state):
     self.yearly_pay_salary()
     self.yearly_enlistment()
 
     # get money if military has government support
     self.budget += self.govt_support_amount
+    
+    if (state.rounds_complete % 5 == 0) and (state.rounds_complete != 0):
+      # clear the number of reservists, but only updated in table next year
+      self.left_this_year += self.clear_reservists()
     
   def clear_reservists(self):
     no_reservists = self.formations[reservists]

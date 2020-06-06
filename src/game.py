@@ -7,6 +7,7 @@ from utils.displays import display, clear_screen, display_stats, typewrtier_prin
 from utils.prompts import mc_prompt
 
 from functions import show_alerts
+from choices import change_enlistment_scheme
 
 
 # instantiate the military!
@@ -24,28 +25,38 @@ def start():
 
 
 def gameloop():
-  clear_screen()
+  while True:  # only break when a choice has been made successfully
+    clear_screen()
 
-  # display stats of military
-  display_stats(military)
+    # display stats of military
+    display_stats(military, state)
+
+    show_alerts(military, state)
+    # add some spacing
+    print('\n\n')
+
+    # actual game logic
+    choice = mc_prompt('What would you like to do now?', ['change enlistment scheme', 'change salary', 'nothing'])
+
+    print()
+    # choice logic
+    if choice == 0:
+      result = change_enlistment_scheme(military)
+      if result:
+        break
+
+    elif choice == 1:
+      pass
+
+    elif choice == 2:
+      # nothing choice has been made
+      break
 
   # reset the number of peole joined and left this year
   military.joined_this_year = military.left_this_year = 0
 
-  show_alerts(state, military)
-  # add some spacing
-  print('\n\n')
-
-  # actual game logix
-  choice = mc_prompt('What would you like to do now?', ['change enlistment scheme', 'change salary', 'nothing'])
-  # choice logic
-  if choice == 0:
-    pass
-  elif choice == 2:
-    pass
-
   # functions called at the end of the year (pay salary, enlist soldiers, )
-  military.year_end()
+  military.year_end(state)
 
   # game state
   state.round()

@@ -39,6 +39,9 @@ def mc_prompt(prompt_message, choices):
   try:
     answer = int(answer_prompt)
   except:
-    answer = choices.index(answer_prompt)
+    try:
+      answer = choices.index(answer_prompt)
+    except:
+      answer = None
 
   return answer
