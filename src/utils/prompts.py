@@ -1,6 +1,9 @@
 from rich.console import Console
 
-from utils.displays import typewrtier_print
+try:
+  from utils.displays import typewrtier_print
+except:
+  from displays import typewrtier_print
 
 
 console = Console()
@@ -34,9 +37,8 @@ def mc_prompt(prompt_message, choices):
 
   # check if the answer was a number, and return the choice accordinly
   try:
-    answer_int = int(answer_prompt)
-    answer = choices[answer_int]
+    answer = int(answer_prompt)
   except:
-    answer = answer_prompt
+    answer = choices.index(answer_prompt)
 
   return answer

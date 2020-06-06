@@ -37,9 +37,12 @@ def gameloop():
   print('\n\n')
 
   # actual game logix
-  choice = mc_prompt('What would you like to do now?', ['', 'nothing'])
+  choice = mc_prompt('What would you like to do now?', ['change enlistment scheme', 'change salary', 'nothing'])
   # choice logic
-  # TODO:
+  if choice == 0:
+    pass
+  elif choice == 2:
+    pass
 
   # functions called at the end of the year (pay salary, enlist soldiers, )
   military.year_end()

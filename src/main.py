@@ -30,15 +30,15 @@ def show_options():
   )
 
   # start game
-  if option == 'play':
+  if option == 0:
     start()
 
   # open github repo
-  elif option == 'github':
+  elif option == 1:
     webbrowser.open('https://github.com/ninest')
 
   # quit program completely
-  elif option == 'quit':
+  elif option == 2:
     clear_screen()
     sys.exit()
 
