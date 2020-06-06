@@ -27,9 +27,9 @@ def display_stats(military):
 
   breakup += f'[bold]Total: {military.total_count()}[/bold]\n'
 
-  if military.joined_this_year != 0 and military.left_this_year != 0:
-    # show the change in number of people
-    breakup += f'([red]-{military.left_this_year}[/red] [green]+{military.joined_this_year}[/green])'
+  # if military.joined_this_year != 0 and military.left_this_year != 0:
+  # show the change in number of people
+  breakup += f'([red]-{military.left_this_year}[/red] [green]+{military.joined_this_year}[/green])'
 
   table.add_row(
       breakup,
