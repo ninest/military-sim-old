@@ -77,7 +77,7 @@ There's a while loop here to. The loop only breaks when a **choice** has been ma
 
 After this, some stuff is reset, for example the number of soldiers who joined or left this month. Certain functions are also called, such as those that pay the soldiers their salary (see `Military.month_end` in `models/military.py`)
 
-#### Models
+### Models
 
 **Military**
 
