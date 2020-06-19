@@ -2,7 +2,7 @@ from rich import print
 
 def show_alerts(military, state):
   alerts = []
-  # every 10 years, all reservists leave the army
+  # every 10 months, all reservists leave the army
   if (state.rounds_complete % 5 == 0) and (state.rounds_complete != 0):
     alerts.append('Reservists are leaving soon')
 

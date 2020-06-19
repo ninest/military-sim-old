@@ -7,6 +7,8 @@ from rich.table import Column, Table
 
 console = Console()
 
+# It's okay if you don't understand exactly what these functions are doing
+
 
 def display(message, style=''):
   console.print(message, style=style)
@@ -15,12 +17,14 @@ def display(message, style=''):
 def display_stats(military, state):
   ''' Prints a table of the army stats '''
 
+  # Tables are made using the 'rich' module: https://github.com/willmcgugan/rich#tables
+
   table = Table(show_header=True, header_style='bold white')
 
   # columns: breakup of how many people in each formation and total budget
   table.add_column('Breakup')
   table.add_column('Budget ($)')
-  table.add_column('Years passed')
+  table.add_column('Months passed')
 
   breakup = ''
   for each_formation in military.formations:
@@ -28,9 +32,9 @@ def display_stats(military, state):
 
   breakup += f'[bold]Total: {military.total_count()}[/bold]\n'
 
-  # if military.joined_this_year != 0 and military.left_this_year != 0:
   # show the change in number of people
-  breakup += f'[red]-{military.left_this_year} ({military.leave_rate})[/red]   [green]+{military.joined_this_year} ({military.join_rate})[/green]'
+  breakup += f'[red]-{military.left_this_month} ({military.leave_rate})[/red]   [green]+{military.joined_this_month} ({military.join_rate})[/green]'
+  # NOTE: military.leave_rate and military.join_rate are not meant to be shown. They are being shown for debug purposes only
 
   table.add_row(
       breakup,

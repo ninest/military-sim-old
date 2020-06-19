@@ -13,7 +13,7 @@ def main():
   # TODO: set the background color to a darker color
 
   # DEBUG mode: automatially start the game
-  start()
+  # start()
 
 
   fullscreen_message('Welcome to Military Simulator', color='green')
@@ -23,24 +23,26 @@ def main():
 
 
 def show_options():
-  clear_screen()
-  option = mc_prompt(
-      'What would you like to do?',
-      choices=['play', 'github', 'quit']
-  )
-
-  # start game
-  if option == 0:
-    start()
-
-  # open github repo
-  elif option == 1:
-    webbrowser.open('https://github.com/ninest')
-
-  # quit program completely
-  elif option == 2:
+  while True:
     clear_screen()
-    sys.exit()
+    # mc_prompt = multichoice prompt
+    option = mc_prompt(
+        'What would you like to do?',
+        choices=['play', 'github', 'quit']
+    )
+
+    # start game
+    if option == 0:
+      start()
+
+    # open github repo
+    elif option == 1:
+      webbrowser.open('https://github.com/ninest/military-sim')
+
+    # quit program completely
+    elif option == 2:
+      clear_screen()
+      sys.exit()
 
 
 if __name__ == '__main__':
