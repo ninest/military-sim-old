@@ -54,7 +54,7 @@ class Military:
         newly_enlisted = random.randint(0, int(previous_pop/3 * self.join_rate))
         de_enlisted = random.randint(0, int(previous_pop/3 * self.leave_rate))
 
-        print(each_formation.name, newly_enlisted, de_enlisted)
+        # print(each_formation.name, newly_enlisted, de_enlisted)
 
         self.formations[each_formation] += newly_enlisted - de_enlisted
 
@@ -78,14 +78,19 @@ class Military:
       self.budget -= pay * no_soldiers
 
   def month_end(self, state):
+    '''
+    - pay the soldiers
+    - get paid by gahmen
+    '''
+
     self.monthly_pay_salary()
     self.monthly_enlistment()
 
     # get money if military has government support
     self.budget += self.govt_support_amount
 
-    if (state.rounds_complete % 5 == 0) and (state.rounds_complete != 0):
-      # clear the number of reservists
+    # clear the number of reservists every 10 months
+    if (state.rounds_complete % 10 == 0) and (state.rounds_complete != 0):
       # (although they are cleared right now, the number is only updated in the teble the next month)
       self.left_this_month += self.clear_reservists()
 
