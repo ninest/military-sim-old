@@ -5,6 +5,8 @@ from utils.displays import typewrtier_print
 
 console = Console()
 
+# It's okay if you don't understand exactly what these functions are doing
+
 
 def prompt(prompt_message=None):
   ''' A customized prompt to be used instead of input (doesn't require a prompt_message) '''
